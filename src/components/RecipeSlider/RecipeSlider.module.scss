@@ -1,0 +1,18 @@
+.cards{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.slider{
+    padding: 50px 0px;
+ .top{display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    &_btns{
+        button{
+            padding: 10px 25px;
+        }
+    }
+    padding: 20px;
+ }   
+}
