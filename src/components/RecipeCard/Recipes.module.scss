@@ -7,3 +7,63 @@
         object-position: center;
     }
 }
+.card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.card h2 {
+  font-size: 22px;
+  color: #333;
+  margin: 0;
+}
+
+.card p {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+.card > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.card span {
+  font-size: 14px;
+  color: #888;
+}
+
+.card button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #004d40;
+}
