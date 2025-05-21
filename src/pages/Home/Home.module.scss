@@ -158,7 +158,6 @@
     text-align: center;
     align-items: center;
     margin-bottom: 16px;
-    height: 500px;
     opacity: 0.9;
 
     h3 {
@@ -172,22 +171,119 @@
         color: white;
     }
 
-    p {color: white;
+    p {
+        color: white;
         font-size: 23px;
         max-width: 600px;
         margin: 0 auto 20px auto;
     }
-    button{
+
+    button {
         padding: 10px 20px;
         color: white;
         background-color: rgba(218, 72, 19, 0.918);
         border: none;
         border-radius: 12px;
-              transform: translateY(-50%);
-              cursor: pointer;
+        transform: translateY(-50%);
+        cursor: pointer;
     }
-     button:hover {
-    background-color: rgb(255, 68, 0);
+
+    button:hover {
+        background-color: rgb(255, 68, 0);
+    }
+
 }
 
+@media screen and (max-width: 768px) {
+    .recipes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header {
+        border-radius: 5px solid black;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .recipes {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .grid1 {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .grid div:nth-child(1),
+    .grid div:nth-child(2),
+    .grid div:nth-child(3),
+    .grid div:nth-child(4) {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+
+    .grid div:nth-child(3) {
+        order: 4;
+    }
+
+    .subscribe {
+        padding: 35px;
+    }
+
+    h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    h1 {
+        font-size: 58px;
+        margin: 10px 0;
+    }
+
+    p {
+        font-size: 20px;
+        max-width: 600px;
+        margin: 0 auto 20px auto;
+    }
+}
+
+/* ===== Phones (max-width: 500px) ===== */
+@media (max-width: 500px) {
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 16px;
+    }
+
+    .grid div:nth-child(1),
+    .grid div:nth-child(2),
+    .grid div:nth-child(3),
+    .grid div:nth-child(4) {
+        grid-column: span 1;
+        grid-row: auto;
+    }
+
+    .grid div:nth-child(1),
+    .grid div:nth-child(4) {
+        order: 1;
+    }
+
+    .grid div:nth-child(2) {
+        order: 2;
+    }
+
+    .grid div:nth-child(3) {
+        order: 3;
+    }
 }

@@ -43,7 +43,7 @@ const Home = () => {
       <div className={`container ${s.excellence}`}>
         <div className={s.grid}>
           <div className={s.grid1}>
-            <div>
+            <div className={s.grid1}>
               <h2>OUR CULINARY CHRONICLE</h2>
               <h3>
                 Our journey is crafted with dedication, creativity, and an unrelenting commitment to delivering delightful culinary experiences.

@@ -42,3 +42,9 @@
 .arrowButton:focus img {
   transform: scale(1.1); 
 }
+@media screen and (max-width: 540px) {
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+}
