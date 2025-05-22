@@ -30,6 +30,43 @@ const Home = () => {
           <button type="submit">Subscribe</button>
         </div>
       </div>
+    <div className={`container ${s.menu}`}>
+       <div className={s.menuRight}>
+    <button className={s.exploreBtn}>Explore</button>
+    <h2>OUR DIVERSE PALETTE</h2>
+    <p>
+      If you are a breakfast enthusiast, a connoisseur of savory delights, or on the lookout
+      for irresistible desserts, our curated selection has something to satisfy every palate.
+    </p>
+    <button className={s.seeMoreBtn}>See More</button>
+  </div>
+  <div className={s.menuLeft}>
+    <div className={s.menuEl}>
+      <img src="/public/breakfast.png" alt="Breakfast" />
+      <span>Breakfast</span>
+    </div>
+    <div className={s.menuEl}>
+      <img src="/public/lunch.png" alt="Lunch" />
+      <span>Lunch</span>
+    </div>
+    <div className={s.menuEl}>
+      <img src="/public/dinner.png" alt="Dinner" />
+      <span>Dinner</span>
+    </div>
+    <div className={s.menuEl}>
+      <img src="/public/dessert.png" alt="Dessert" />
+      <span>Dessert</span>
+    </div>
+    <div className={s.menuEl}>
+      <img src="/public/quice bite.png" alt="Quick Bite" />
+      <span>Quick Bite</span>
+    </div>
+  </div>
+
+ 
+</div>
+
+
       <div className="container">
         <RecipeSlider recipes={recipes.slice(0, 6)} />
       </div>
