@@ -19,7 +19,7 @@ const RecipesCard = ({ recipe = null }) => {
     }, [recipe]);
 
     return (
-        <div className={s.card}>
+        <div className={s.card}  onClick={goToRecipe}>
             {recipeInfo ? (
                 <>
                     <img src={recipeInfo.image} alt="Recipe" />

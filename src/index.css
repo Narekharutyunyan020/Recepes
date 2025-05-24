@@ -10,3 +10,9 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+button{
+  cursor: pointer;
+}
+a{
+  text-decoration: none;
+}

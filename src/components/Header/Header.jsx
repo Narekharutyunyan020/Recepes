@@ -15,16 +15,17 @@ const Header = () => {
 
   return (
     <header className={s.header}>
+    <Link to="/">
       <div className={s.leftSection}>
-        <div className={s.logo}>
-          <a href="/">
+      
             <img src="/Logo.png" alt="Logo" />
-          </a>
-        </div>
+            
+     
         <h1>
           Cooks <br /> Delight
         </h1>
       </div>
+    </Link>
 
       <button className={s.menuToggle} onClick={toggleMenu}>
         ☰
@@ -33,7 +34,7 @@ const Header = () => {
       {/* Desktop Navigation */}
       <nav className={s.nav}>
         <NavLink to="/" className={({ isActive }) => isActive ? s.active : ""}>Home</NavLink>
-        <NavLink to="/recipe" className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
+        <NavLink to="/recipes" className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
         <NavLink to="/about" className={({ isActive }) => isActive ? s.active : ""}>About Us</NavLink>
         <NavLink to="/tips" className={({ isActive }) => isActive ? s.active : ""}>Cooking Tips</NavLink>
       </nav>
@@ -55,7 +56,7 @@ const Header = () => {
         {/* Հղումներ */}
         <div className={s.menuLinks}>
           <NavLink to="/" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Home</NavLink>
-          <NavLink to="/recipe" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
+          <NavLink to="/recipes" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
           <NavLink to="/about" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>About Us</NavLink>
           <NavLink to="/tips" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Cooking Tips</NavLink>
         </div>
