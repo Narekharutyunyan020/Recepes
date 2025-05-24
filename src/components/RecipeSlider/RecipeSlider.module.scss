@@ -1,20 +1,21 @@
-.cards{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }
-.slider{
-    padding: 50px 0px;
- .top{display: flex;
+.slider {
+  padding: 50px 0px;
+  .top {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    &_btns{
-        button{
-            padding: 10px 25px;
-        }
+    &_btns {
+      button {
+        padding: 10px 25px;
+      }
     }
-  
- }   
+  }
 }
 
 .arrowButton {
@@ -28,7 +29,7 @@
 
 .arrowButton:hover,
 .arrowButton:focus {
-  background-color: rgba(0, 0, 0, 0.1); 
+  background-color: rgba(0, 0, 0, 0.1);
   outline: none;
 }
 
@@ -40,11 +41,11 @@
 
 .arrowButton:hover img,
 .arrowButton:focus img {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 @media screen and (max-width: 540px) {
-  .cards{
+  .cards {
     display: grid;
-    grid-template-columns: repeat(1,1fr);
-}
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

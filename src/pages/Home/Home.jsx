@@ -19,52 +19,58 @@ const Home = () => {
 
   return (
     <div>
-      <div className={`container ${s.subscribes}`}>
-        <h1>Join the fun. <br /> Subscribe now!</h1>
-        <p>
-          Subscribe to our newsletter for a weekly serving of recipes, cooking tips,
-          and exclusive insights straight to your inbox.
-        </p>
+      <div className='container'>
+        <div className={s.subscribes}>
+          <div className={s.blur}>
+            <h1>Join the fun. <br /> Subscribe now!</h1>
+            <p>
+              Subscribe to our newsletter for a weekly serving of recipes, cooking tips,
+              and exclusive insights straight to your inbox.
+            </p>
 
-        <div className={s.inputWrapper}>
-          <button type="submit">Subscribe</button>
+            <div className={s.inputWrapper}>
+              <button type="submit">Subscribe</button>
+            </div>
+          </div>
         </div>
       </div>
-    <div className={`container ${s.menu}`}>
-       <div className={s.menuRight}>
-    <button className={s.exploreBtn}>Explore</button>
-    <h2>OUR DIVERSE PALETTE</h2>
-    <p>
-      If you are a breakfast enthusiast, a connoisseur of savory delights, or on the lookout
-      for irresistible desserts, our curated selection has something to satisfy every palate.
-    </p>
-    <button className={s.seeMoreBtn}>See More</button>
-  </div>
-  <div className={s.menuLeft}>
-    <div className={s.menuEl}>
-      <img src="/public/breakfast.png" alt="Breakfast" />
-      <span>Breakfast</span>
-    </div>
-    <div className={s.menuEl}>
-      <img src="/public/lunch.png" alt="Lunch" />
-      <span>Lunch</span>
-    </div>
-    <div className={s.menuEl}>
-      <img src="/public/dinner.png" alt="Dinner" />
-      <span>Dinner</span>
-    </div>
-    <div className={s.menuEl}>
-      <img src="/public/dessert.png" alt="Dessert" />
-      <span>Dessert</span>
-    </div>
-    <div className={s.menuEl}>
-      <img src="/public/quice bite.png" alt="Quick Bite" />
-      <span>Quick Bite</span>
-    </div>
-  </div>
+      <div className="container">
+        <div className={s.menu}>
+          <div className={s.menuRight}>
+            <button className={s.exploreBtn}>Explore</button>
+            <h2>OUR DIVERSE PALETTE</h2>
+            <p>
+              If you are a breakfast enthusiast, a connoisseur of savory delights, or on the lookout
+              for irresistible desserts, our curated selection has something to satisfy every palate.
+            </p>
+            <button className={s.seeMoreBtn}>See More</button>
+          </div>
+          <div className={s.menuLeft}>
+            <div className={s.menuEl}>
+              <img src="/breakfast.png" alt="Breakfast" />
+              <span>Breakfast</span>
+            </div>
+            <div className={s.menuEl}>
+              <img src="/lunch.png" alt="Lunch" />
+              <span>Lunch</span>
+            </div>
+            <div className={s.menuEl}>
+              <img src="/dinner.png" alt="Dinner" />
+              <span>Dinner</span>
+            </div>
+            <div className={s.menuEl}>
+              <img src="/dessert.png" alt="Dessert" />
+              <span>Dessert</span>
+            </div>
+            <div className={s.menuEl}>
+              <img src="/quice bite.png" alt="Quick Bite" />
+              <span>Quick Bite</span>
+            </div>
+          </div>
 
- 
-</div>
+
+        </div>
+      </div>
 
 
       <div className="container">
@@ -76,47 +82,35 @@ const Home = () => {
           <RecipesCard key={rec.id} recipe={rec} />
         ))}
       </div>
-
-      <div className={`container ${s.excellence}`}>
+      <div className="container">
         <div className={s.grid}>
           <div className={s.grid1}>
-            <div className={s.grid1}>
-              <h2>OUR CULINARY CHRONICLE</h2>
-              <h3>
-                Our journey is crafted with dedication, creativity, and an unrelenting commitment to delivering delightful culinary experiences.
-                {showMore && (
-                  <>
-                    {" "}
-                    We explore flavors, techniques, and traditions from around the world. Each recipe tells a story, We explore flavors, techniques, and traditions from around the world. Each recipe tells a story, We explore flavors, techniques, and traditions from around the world. Each recipe tells a story, and each dish brings people together.
-                  </>
-                )}
-              </h3>
-              <button onClick={toggleText}>
-                {showMore ? 'Read Less' : 'Read More'}
-              </button>
-            </div>
+            <h2>OUR CULINARY CHRONICLE</h2>
+            <h3>
+              Our journey is crafted with dedication, creativity, and an unrelenting commitment to delivering delightful culinary experiences.
+              {showMore && (
+                <>
+                  {" "}
+                  We explore flavors, techniques, and traditions from around the world. Each recipe tells a story, We explore flavors, techniques, and traditions from around the world. Each recipe tells a story, We explore flavors, techniques, and traditions from around the world. Each recipe tells a story, and each dish brings people together.
+                </>
+              )}
+            </h3>
+            <button onClick={toggleText}>
+              {showMore ? 'Read Less' : 'Read More'}
+            </button>
           </div>
 
           <div>
-            <div>
-              <img
-                src="/Recipe%20Card.png"
-                alt="Recipe 1"
-                style={{ width: '100%', maxHeight: "300px", borderRadius: '8px' }}
-              />
-            </div>
+            <img
+              src="/Recipe%20Card.png"
+              alt="Recipe 1"
+            />
           </div>
 
           <div>
             <img
               src="/recipe.grid1.jpg"
               alt="Recipe 3"
-              style={{
-                width: '100%',
-                maxHeight: '96.5%',
-                objectFit: 'cover',
-                borderRadius: '8px'
-              }}
             />
           </div>
 
@@ -124,23 +118,23 @@ const Home = () => {
             <img
               src="/recipe.grid.png"
               alt="Recipe 2"
-              style={{ width: '100%', maxHeight: "400px", borderRadius: '8px' }}
             />
           </div>
         </div>
       </div>
+      <div className="container">
+        <div className={s.subscribe}>
+          <h3>Subscribe</h3>
+          <h1>Join the fun. <br /> Subscribe now!</h1>
+          <p>
+            Subscribe to our newsletter for a weekly serving of recipes, cooking tips,
+            and exclusive insights straight to your inbox.
+          </p>
 
-      <div className={`container ${s.subscribe}`}>
-        <h3>Subscribe</h3>
-        <h1>Join the fun. <br /> Subscribe now!</h1>
-        <p>
-          Subscribe to our newsletter for a weekly serving of recipes, cooking tips,
-          and exclusive insights straight to your inbox.
-        </p>
-
-        <div className={s.inputWrapper}>
-          <input type="email" placeholder="Email Address" />
-          <button type="submit">Subscribe</button>
+          <div className={s.inputWrapper}>
+            <input type="email" placeholder="Email Address" />
+            <button type="submit">Subscribe</button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,10 +1,15 @@
-import React, {useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
 import s from "./Recipes.module.scss"
+import { useNavigate } from 'react-router-dom';
 
 
-const RecipesCard = ({recipe=null}) => {const [recipeInfo, setRecipeInfo] = useState(null);
-
+const RecipesCard = ({ recipe = null }) => {
+    const [recipeInfo, setRecipeInfo] = useState(null);
+    const navigate = useNavigate()
+    const goToRecipe = () => {
+        navigate(`/recipe/${recipe.id}`)
+    }
     useEffect(() => {
         setRecipeInfo(null);
         const timeout = setTimeout(() => {
@@ -24,7 +29,7 @@ const RecipesCard = ({recipe=null}) => {const [recipeInfo, setRecipeInfo] = useS
                         <span>
                             {recipeInfo.prepTimeMinutes} min · {recipeInfo.difficulty} · {recipeInfo.servings} serve
                         </span>
-                        <button>View Recipe</button>
+                        <button onClick={goToRecipe}>View Recipe</button>
                     </div>
                 </>
             ) : (

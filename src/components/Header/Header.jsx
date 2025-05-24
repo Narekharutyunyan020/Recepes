@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
 
 const Header = () => {
@@ -32,10 +32,10 @@ const Header = () => {
 
       {/* Desktop Navigation */}
       <nav className={s.nav}>
-        <Link to="/">Home</Link>
-        <Link to="/recipes">Recipes</Link>
-        <Link to="/about">About Us</Link>
-        <Link to="/tips">Cooking Tips</Link>
+        <NavLink to="/" className={({ isActive }) => isActive ? s.active : ""}>Home</NavLink>
+        <NavLink to="/recipe" className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
+        <NavLink to="/about" className={({ isActive }) => isActive ? s.active : ""}>About Us</NavLink>
+        <NavLink to="/tips" className={({ isActive }) => isActive ? s.active : ""}>Cooking Tips</NavLink>
       </nav>
 
       {/* Desktop Search/Subscribe */}
@@ -54,10 +54,10 @@ const Header = () => {
 
         {/* Հղումներ */}
         <div className={s.menuLinks}>
-          <Link to="/" onClick={closeMenu}>Home</Link>
-          <Link to="/recipes" onClick={closeMenu}>Recipes</Link>
-          <Link to="/about" onClick={closeMenu}>About Us</Link>
-          <Link to="/tips" onClick={closeMenu}>Cooking Tips</Link>
+          <NavLink to="/" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Home</NavLink>
+          <NavLink to="/recipe" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
+          <NavLink to="/about" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>About Us</NavLink>
+          <NavLink to="/tips" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Cooking Tips</NavLink>
         </div>
 
         {/* Որոնում ու subscribe */}

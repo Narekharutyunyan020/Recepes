@@ -43,20 +43,22 @@
   padding: 8px 12px;
   border-radius: 6px;
   transition: 0.2s ease;
+  &.active::after {
+    width: 100%;
+  }
 }
 
 .nav a:hover {
   background-color: #f0f0f0;
 }
 
-.nav a:focus,
 .nav a:active {
   outline: none;
   background-color: #ddd;
 }
 
 .nav a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -143,6 +145,7 @@
 .closeBtn {
   font-size: 24px;
   background: none;
+  color: #333;
   border: none;
   cursor: pointer;
 }
@@ -160,6 +163,9 @@
   text-decoration: none;
   font-size: 18px;
   transition: 0.2s ease;
+  &.active {
+    color: #e67e22;
+  }
 }
 
 .menuLinks a:hover {
@@ -184,5 +190,6 @@
 
   .menuToggle {
     display: block;
+    color: #333;
   }
 }

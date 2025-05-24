@@ -1,0 +1,20 @@
+{
+  "name": "Food Recipes",
+  "short_name": "Recipes",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#333",
+  "theme_color": "#333",
+  "icons": [
+    {
+      "src": "/logo-big.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-big.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
