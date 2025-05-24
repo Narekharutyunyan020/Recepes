@@ -17,10 +17,7 @@ const Header = () => {
     <header className={s.header}>
     <Link to="/">
       <div className={s.leftSection}>
-      
             <img src="/Logo.png" alt="Logo" />
-            
-     
         <h1>
           Cooks <br /> Delight
         </h1>
