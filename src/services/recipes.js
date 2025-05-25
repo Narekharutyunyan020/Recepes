@@ -15,9 +15,10 @@ export const getRecipeById = async (id) => {
 };
 
 export const getAll = async (skip) => {
+  const limit = skip != 36 ? 12 : 14;
   return axios
     .get(
-      `https://dummyjson.com/recipes?limit=12&skip=${skip}&select=name,image,servings,ingredients,prepTimeMinutes,difficulty`
+      `https://dummyjson.com/recipes?limit=${limit}&skip=${skip}&select=name,image,servings,ingredients,prepTimeMinutes,difficulty`
     )
     .then((res) => res.data);
 };
