@@ -7,22 +7,26 @@ const Header = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    window.document.body.style.height = !menuOpen ? "100dvh" : "auto"
+    window.document.body.style.overflow = !menuOpen ? "hidden" : "auto"
   };
 
   const closeMenu = () => {
     setMenuOpen(false);
+    window.document.body.style.height = "auto"
+    window.document.body.style.overflow =  "auto"
   };
 
   return (
     <header className={s.header}>
-    <Link to="/">
-      <div className={s.leftSection}>
-            <img src="/Logo.png" alt="Logo" />
-        <h1>
-          Cooks <br /> Delight
-        </h1>
-      </div>
-    </Link>
+      <Link to="/">
+        <div className={s.leftSection}>
+          <img src="/Logo.png" alt="Logo" />
+          <h1>
+            Cooks <br /> Delight
+          </h1>
+        </div>
+      </Link>
 
       <button className={s.menuToggle} onClick={toggleMenu}>
         ☰
