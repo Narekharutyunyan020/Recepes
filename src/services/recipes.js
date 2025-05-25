@@ -13,3 +13,11 @@ export const getRecipeById = async (id) => {
     .get(`https://dummyjson.com/recipes/${id}`)
     .then((res) => res.data);
 };
+
+export const getAll = async (skip) => {
+  return axios
+    .get(
+      `https://dummyjson.com/recipes?limit=12&skip=${skip}&select=name,image,servings,ingredients,prepTimeMinutes,difficulty`
+    )
+    .then((res) => res.data);
+};
