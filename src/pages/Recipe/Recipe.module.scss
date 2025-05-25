@@ -24,7 +24,7 @@
         text-align: center;
         text-transform: uppercase;
         color: #262522;
-        width: 870px;
+        max-width: 870px;
     }
 
     p {
@@ -34,7 +34,7 @@
         letter-spacing: 0;
         text-align: center;
         color: #26252299;
-        width: 648px;
+        max-width: 648px;
     }
 
     .icons {
@@ -78,6 +78,7 @@
         border-radius: 10px;
         padding-left: 50px;
         flex: 1;
+
         li {
             font-weight: 400;
             font-size: 21px;
