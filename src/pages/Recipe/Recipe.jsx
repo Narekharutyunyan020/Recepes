@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getRecipeById } from '../../services/recipes'
+import { getRecipeById, getRecipes } from '../../services/recipes'
+
 import s from "../Recipe/Recipe.module.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
@@ -11,11 +12,15 @@ import RecipeSlider from '../../components/RecipeSlider/RecipeSlider'
 const Recipe = () => {
     const { id } = useParams()
     const [recipeInfo, setInfo] = useState(null)
+    const [recipes, setRecipes] = useState([])
     useEffect(() => {
         getRecipeById(id).then(data => {
             setInfo(data);
             console.log(data);
-
+            getRecipes().then(data => {
+                console.log(data)
+                setRecipes(data)
+            })
         })
 
     }, [id])
@@ -31,7 +36,7 @@ const Recipe = () => {
                 <img src={recipeInfo.image} alt="" />
 
             </div>
-            <div className={s.recipes}>             
+            <div className={s.recipes}>
                 <ul className={s.ingredients}>
                     <h2>ingredients</h2>
                     {Array.isArray(recipeInfo.ingredients) && recipeInfo.ingredients.length > 0
@@ -43,7 +48,7 @@ const Recipe = () => {
                 </ul>
 
                 <ol className={s.instructions}>
-                     <h2>instructions</h2>
+                    <h2>instructions</h2>
                     {Array.isArray(recipeInfo.instructions) && recipeInfo.instructions.length > 0
                         ? recipeInfo.instructions.map((step, index) => (
                             <li key={index}>{step}</li>
@@ -52,10 +57,10 @@ const Recipe = () => {
                     }
                 </ol>
             </div>
-<RecipeSlider/>
+            <RecipeSlider recipes={recipes} />
 
         </div> : <div></div>
-     
+
 }
 
 export default Recipe
