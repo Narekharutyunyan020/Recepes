@@ -5,6 +5,7 @@ import Home from './pages/Home/Home'
 import Recipe from './pages/Recipe/Recipe';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import AboutUs from './pages/AboutUs/AboutUs';
 
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/recipe/:id' element={<Recipe />} />
+        <Route path='/about' element={<AboutUs />} />
 
       </Routes>
 
