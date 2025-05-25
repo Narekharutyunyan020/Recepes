@@ -66,4 +66,34 @@
         color: #26252299;
         max-width: 648px;
     }
+
+    .filter {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+
+        button {
+            text-wrap: nowrap;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #262522;
+            color: #262522;
+            border-radius: 24px;
+            opacity: 0.7;
+            transition: 0.3s;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &.active {
+                background-color: #9fdc26;
+                opacity: 1;
+            }
+        }
+    }
 }

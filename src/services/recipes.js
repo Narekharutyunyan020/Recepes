@@ -22,3 +22,12 @@ export const getAll = async (skip) => {
     )
     .then((res) => res.data);
 };
+
+export const getByMealType = async (type) => {
+  return axios
+    .get(
+      `https://dummyjson.com/recipes/meal-type/${type}?select=name,image,servings,ingredients,prepTimeMinutes,difficulty`
+    )
+    .then((res) => res.data);
+};
+
