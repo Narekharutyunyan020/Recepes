@@ -53,6 +53,7 @@ const Recipe = () => {
                 </ol>
             </div>
 <RecipeSlider/>
+
         </div> : <div></div>
      
 }
