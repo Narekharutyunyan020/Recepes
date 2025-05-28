@@ -1,20 +1,26 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
+import { useForm } from "react-hook-form";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    window.document.body.style.height = !menuOpen ? "100dvh" : "auto"
-    window.document.body.style.overflow = !menuOpen ? "hidden" : "auto"
+    window.document.body.style.height = !menuOpen ? "100dvh" : "auto";
+    window.document.body.style.overflow = !menuOpen ? "hidden" : "auto";
   };
 
   const closeMenu = () => {
     setMenuOpen(false);
-    window.document.body.style.height = "auto"
-    window.document.body.style.overflow =  "auto"
+    window.document.body.style.height = "auto";
+    window.document.body.style.overflow = "auto";
+  };
+
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    console.log("Search data:", data);
   };
 
   return (
@@ -28,9 +34,7 @@ const Header = () => {
         </div>
       </Link>
 
-      <button className={s.menuToggle} onClick={toggleMenu}>
-        ☰
-      </button>
+      <button className={s.menuToggle} onClick={toggleMenu}>☰</button>
 
       {/* Desktop Navigation */}
       <nav className={s.nav}>
@@ -42,19 +46,26 @@ const Header = () => {
 
       {/* Desktop Search/Subscribe */}
       <div className={s.rightSection}>
-        <input type="text" placeholder="Search recipes..." className={s.searchInput} />
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="text"
+            placeholder="Search recipes..."
+            className={s.searchInput}
+            {...register("search")}
+          />
+          <button type="submit">Search</button>
+        </form>
+
         <button className={s.subscribeButton}>Subscribe</button>
       </div>
 
       {/* Slide-in Mobile Menu */}
       <div className={`${s.mobileMenu} ${menuOpen ? s.open : ""}`}>
-        {/* Վերնամաս */}
         <div className={s.menuHeader}>
           <span>Cooks Delight</span>
           <button onClick={closeMenu} className={s.closeBtn}>×</button>
         </div>
 
-        {/* Հղումներ */}
         <div className={s.menuLinks}>
           <NavLink to="/" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Home</NavLink>
           <NavLink to="/recipes" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
@@ -62,9 +73,17 @@ const Header = () => {
           <NavLink to="/tips" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Cooking Tips</NavLink>
         </div>
 
-        {/* Որոնում ու subscribe */}
         <div className={s.menuSearch}>
-          <input type="text" placeholder="Search recipes..." className={s.searchInput} />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input
+              type="text"
+              placeholder="Search recipes..."
+              className={s.searchInput}
+              {...register("searchMobile")}
+            />
+            <button type="submit">Search</button>
+          </form>
+
           <button className={s.subscribeButton}>Subscribe</button>
         </div>
       </div>
