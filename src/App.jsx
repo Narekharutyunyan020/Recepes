@@ -7,6 +7,8 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import AllRecipes from './pages/AllRecipes/AllRecipes';
 import AboutUs from './pages/AboutUs/AboutUs';
+import CookingTips from './pages/CookingTips/CookingTips';
+
 
 
 
@@ -24,6 +26,7 @@ export default function App() {
         <Route path='/recipe/:id' element={<Recipe />} />
         <Route path='/recipes/' element={<AllRecipes />} />
         <Route path='/about' element={<AboutUs />} />
+        <Route path='/tips' element={<CookingTips />} />
       </Routes>
 
       <Footer />
