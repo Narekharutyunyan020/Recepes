@@ -30,3 +30,9 @@ export const getByMealType = async (type) => {
     )
     .then((res) => res.data);
 };
+
+export const searchRecipes = async (name) => {
+  return axios
+    .get(`https://dummyjson.com/recipes/search?q=${name}`)
+    .then((res) => res.data.recipes);
+};

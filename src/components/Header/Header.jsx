@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import s from "./Header.module.scss";
 import { useForm } from "react-hook-form";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate()
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -19,8 +20,9 @@ const Header = () => {
   };
 
   const { register, handleSubmit } = useForm();
+
   const onSubmit = (data) => {
-    console.log("Search data:", data);
+    navigate(`/recipes?search=${data.search}`)
   };
 
   return (
@@ -53,7 +55,6 @@ const Header = () => {
             className={s.searchInput}
             {...register("search")}
           />
-          <button type="submit">Search</button>
         </form>
 
         <button className={s.subscribeButton}>Subscribe</button>

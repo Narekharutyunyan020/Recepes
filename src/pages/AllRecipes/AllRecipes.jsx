@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { getAll, getByMealType } from '../../services/recipes'
+import { getAll, getByMealType, searchRecipes } from '../../services/recipes'
 import RecipesCard from '../../components/RecipeCard/RecipesCard'
 import style from './AllRecipes.module.scss'
+import { useLocation } from 'react-router-dom'
 
 const AllRecipes = () => {
   const [skip, setSkip] = useState(0)
@@ -9,12 +10,28 @@ const AllRecipes = () => {
   const [selectedType, setSelectedType] = useState("All")
   const [searchTerm, setSearchTerm] = useState("")
 
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get("search")
+
+  useEffect(() => {
+    searchRecipes(searchTerm).then(data => setRecipes(data))
+    if (searchTerm != "") {
+      setSelectedType("All")
+    }
+  }, [searchTerm])
+
+  useEffect(() => {
+    setSearchTerm(searchQuery)
+  }, [searchQuery])
+
   const changePage = (value) => {
     window.scrollTo({ top: 0, behavior: "smooth" })
     setSkip(value)
   }
 
   const changeType = (type) => {
+    setSearchTerm("")
     setSelectedType(type)
     if (type === "All") {
       setSkip(0)
@@ -65,14 +82,14 @@ const AllRecipes = () => {
         </div>
       </div>
 
-  <div className={`container ${style.grid}`}>
-  {filteredRecipes.length > 0 
-    ? filteredRecipes.map(rec => <RecipesCard recipe={rec} key={rec.id} />)
-    : "No data"}
-</div>
+      <div className={`container ${style.grid}`}>
+        {filteredRecipes.length > 0
+          ? filteredRecipes.map(rec => <RecipesCard recipe={rec} key={rec.id} />)
+          : "No data"}
+      </div>
 
 
-      {selectedType === "All" && (
+      {selectedType === "All" && searchTerm == "" && (
         <div className={`container ${style.pagination}`}>
           <button style={{ backgroundColor: skip === 0 ? "#e67e22" : "transparent" }} onClick={() => changePage(0)}>1</button>
           <button style={{ backgroundColor: skip === 12 ? "#e67e22" : "transparent" }} onClick={() => changePage(12)}>2</button>
