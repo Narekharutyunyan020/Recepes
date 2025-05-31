@@ -41,7 +41,7 @@ const Header = () => {
       {/* Desktop Navigation */}
       <nav className={s.nav}>
         <NavLink to="/" className={({ isActive }) => isActive ? s.active : ""}>Home</NavLink>
-        <NavLink to="/recipes" className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
+        <NavLink to="/recipes?search=" className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
         <NavLink to="/about" className={({ isActive }) => isActive ? s.active : ""}>About Us</NavLink>
         <NavLink to="/tips" className={({ isActive }) => isActive ? s.active : ""}>Cooking Tips</NavLink>
       </nav>
@@ -69,7 +69,7 @@ const Header = () => {
 
         <div className={s.menuLinks}>
           <NavLink to="/" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Home</NavLink>
-          <NavLink to="/recipes" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
+          <NavLink to="/recipes?search=" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
           <NavLink to="/about" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>About Us</NavLink>
           <NavLink to="/tips" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Cooking Tips</NavLink>
         </div>
