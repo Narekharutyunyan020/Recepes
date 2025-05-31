@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getAll, getByMealType, searchRecipes } from '../../services/recipes'
 import RecipesCard from '../../components/RecipeCard/RecipesCard'
 import style from './AllRecipes.module.scss'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const AllRecipes = () => {
   const [skip, setSkip] = useState(0)
@@ -11,19 +11,17 @@ const AllRecipes = () => {
   const [searchTerm, setSearchTerm] = useState("")
 
   const location = useLocation();
+  const navigate = useNavigate()
   const searchParams = new URLSearchParams(location.search);
   const searchQuery = searchParams.get("search")
 
-  useEffect(() => {
-    searchRecipes(searchTerm).then(data => setRecipes(data))
-    if (searchTerm != "") {
-      setSelectedType("All")
-    }
-  }, [searchTerm])
 
-  useEffect(() => {
-    setSearchTerm(searchQuery)
-  }, [searchQuery])
+  const submitSearch = (e) => {
+    e.preventDefault()
+    navigate(`/recipes?search=${searchTerm}`)
+  }
+
+
 
   const changePage = (value) => {
     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -48,26 +46,38 @@ const AllRecipes = () => {
   const types = ['Dinner', 'Lunch', 'Snack', 'Dessert', 'Side Dish', 'Appetizer', 'Breakfast', 'Beverage']
 
   useEffect(() => {
+    if (searchQuery) {
+      return
+    }
     getAll(skip).then(data => {
       setRecipes(data.recipes)
     })
   }, [skip])
 
-  const filteredRecipes = recipes.filter(recipe =>
-    recipe.name?.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  useEffect(() => {
+    searchRecipes(searchQuery).then(data => setRecipes(data))
+    setSearchTerm(searchQuery)
+    if (searchQuery != "") {
+      setSelectedType("All")
+    }
+  }, [searchQuery])
+
 
   return (
     <div>
       <div className={`container ${style.top}`}>
         {/* Search Input */}
-        <input
-          type="text"
-          placeholder="Search for a recipe..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className={style.searchInput}
-        />
+        <form>
+          <input
+            type="text"
+            placeholder="Search for a recipe..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className={style.searchInput}
+          />
+          <button onClick={submitSearch}>O</button>
+        </form>
+
 
         <span className={style.recipe}>Recipe</span>
         <h2>Embark on a journey</h2>
@@ -83,9 +93,7 @@ const AllRecipes = () => {
       </div>
 
       <div className={`container ${style.grid}`}>
-        {filteredRecipes.length > 0
-          ? filteredRecipes.map(rec => <RecipesCard recipe={rec} key={rec.id} />)
-          : "No data"}
+        {recipes.length == 0 ? "No data" : recipes.map(rec => <RecipesCard recipe={rec} key={rec.id} />)}
       </div>
 
 
