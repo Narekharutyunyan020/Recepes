@@ -1,11 +1,15 @@
-import { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import s from "./Header.module.scss";
 import { useForm } from "react-hook-form";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate()
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get("search")
+
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -19,10 +23,18 @@ const Header = () => {
     window.document.body.style.overflow = "auto";
   };
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm({
+    defaultValues: {
+      search: searchQuery
+    }
+  });
 
-  const onSubmit = (data) => {
-    navigate(`/recipes?search=${data.search}`)
+  useEffect(() => {
+    reset({ search: searchQuery });
+  }, [location.search, reset, searchQuery]);
+
+  const onSubmit = ({ search }) => {
+    navigate(`/recipes?search=${search}`)
   };
 
   return (
@@ -74,19 +86,6 @@ const Header = () => {
           <NavLink to="/tips" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Cooking Tips</NavLink>
         </div>
 
-        <div className={s.menuSearch}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              type="text"
-              placeholder="Search recipes..."
-              className={s.searchInput}
-              {...register("searchMobile")}
-            />
-            <button type="submit">Search</button>
-          </form>
-
-          <button className={s.subscribeButton}>Subscribe</button>
-        </div>
       </div>
     </header>
   );
