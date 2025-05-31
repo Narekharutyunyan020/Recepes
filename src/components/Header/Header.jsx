@@ -27,6 +27,7 @@ const Header = () => {
     defaultValues: {
       search: searchQuery
     }
+    
   });
 
   useEffect(() => {
