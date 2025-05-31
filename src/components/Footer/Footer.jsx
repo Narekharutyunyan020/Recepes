@@ -15,7 +15,7 @@ const Footer = () => {
 
       <nav className={s.nav}>
         <Link to="/">Home</Link>
-        <Link to="/recipes">Recipes</Link>
+        <Link to="/recipes?search=">Recipes</Link>
         <Link to="/about">About Us</Link>
         <Link to="/tips">Cooking Tips</Link>
       </nav>
