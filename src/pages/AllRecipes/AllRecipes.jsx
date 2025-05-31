@@ -3,6 +3,7 @@ import { getAll, getByMealType, searchRecipes } from '../../services/recipes'
 import RecipesCard from '../../components/RecipeCard/RecipesCard'
 import style from './AllRecipes.module.scss'
 import { useLocation, useNavigate } from 'react-router-dom'
+import SearchIcon from '../../icons/SearchIcon'
 
 const AllRecipes = () => {
   const [skip, setSkip] = useState(0)
@@ -67,7 +68,11 @@ const AllRecipes = () => {
     <div>
       <div className={`container ${style.top}`}>
         {/* Search Input */}
-        <form>
+     
+        <span className={style.recipe}>Recipe</span>
+        <h2>Embark on a journey</h2>
+        <p>With our diverse collection of recipes we have something to satisfy every palate.</p>
+           <form className={style.form}>
           <input
             type="text"
             placeholder="Search for a recipe..."
@@ -75,13 +80,8 @@ const AllRecipes = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className={style.searchInput}
           />
-          <button onClick={submitSearch}>O</button>
+          <button onClick={submitSearch}><SearchIcon /></button>
         </form>
-
-
-        <span className={style.recipe}>Recipe</span>
-        <h2>Embark on a journey</h2>
-        <p>With our diverse collection of recipes we have something to satisfy every palate.</p>
         <div className={style.filter}>
           <button onClick={() => changeType("All")} className={selectedType === "All" ? style.active : ""}>All</button>
           {types.map((type, i) => (
