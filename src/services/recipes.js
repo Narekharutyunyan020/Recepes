@@ -30,14 +30,3 @@ export const getByMealType = async (type) => {
     )
     .then((res) => res.data);
 };
-
-<<<<<<< Updated upstream
-=======
-}
-
-export const getRecipeById = async (id) => {
-  return axios
-    .get(`https://dummyjson.com/recipes/${id}`)
-    .then((res) => res.data);
-};
->>>>>>> Stashed changes
