@@ -11,9 +11,9 @@
         font-weight: 800;
         font-size: 80px;
         line-height: 100%;
-        letter-spacing: -1%;
+        letter-spacing: -1px;
         text-transform: uppercase;
-
+        width: 100%;
     }
 
     .frame {
@@ -21,6 +21,7 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 40px;
+        width: 90%;
 
         p {
             font-family: Roboto;
@@ -53,4 +54,218 @@
         }
 
     }
+}
+
+.about {
+    display: flex;
+    // align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    .biography {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .follow {
+            border: 1px solid #262522;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            border-radius: 24px;
+
+            &:hover {
+                background-color: #ff6347;
+                color: white;
+                border: 1px solid #ff6347;
+            }
+
+            span {
+                font-family: Roboto;
+                font-weight: 500;
+                font-size: 12px;
+                line-height: 120%;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .rightSection {
+        display: flex;
+        gap: 14px;
+
+        a {
+            .icon {
+                font-size: 25px;
+                color: #ccc;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                    color: #262522;
+                }
+            }
+        }
+    }
+
+    .text {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        h4 {
+            font-family: Roboto;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 100%;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .desc {
+            font-family: Roboto;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 140%;
+            letter-spacing: 1px;
+            color: #333333CC
+        }
+
+        .font {
+            font-family: Homemade Apple;
+            font-weight: 400;
+            font-size: 21px;
+            line-height: 120%;
+            letter-spacing: 1px;
+
+        }
+    }
+}
+
+.gallery {
+    margin-top: 64px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+
+    img {
+        border-radius: 24px;
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        transition: 0.3s;
+
+        &:hover {
+            transform: scale(1.08);
+            filter: brightness(0.8);
+            cursor: pointer;
+        }
+    }
+}
+
+// Below 960px
+@media (max-width: 960px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+
+    h2 {
+      font-size: 60px;
+    }
+
+    .frame {
+      width: 100%;
+    }
+  }
+
+  .about {
+    flex-direction: column;
+
+    .text h4 {
+      font-size: 32px;
+    }
+
+    .biography img {
+      height: 360px;
+    }
+
+    .gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// Below 760px
+@media (max-width: 760px) {
+  .hero h2 {
+    font-size: 48px;
+  }
+
+  .about .text h4 {
+    font-size: 28px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Below 550px
+@media (max-width: 550px) {
+  .hero h2 {
+    font-size: 36px;
+  }
+
+  .frame p {
+    font-size: 18px;
+  }
+
+  .about .text h4 {
+    font-size: 24px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Below 450px
+@media (max-width: 450px) {
+  .hero {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .frame p {
+    font-size: 16px;
+  }
+
+  .about .text .desc {
+    font-size: 14px;
+  }
+
+  .about .text .font {
+    font-size: 18px;
+  }
+
+  .about .biography img {
+    height: 280px;
+  }
 }
