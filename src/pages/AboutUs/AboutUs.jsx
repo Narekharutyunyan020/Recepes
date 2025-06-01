@@ -28,10 +28,10 @@ const AboutUs = () => {
           <img src="/about/e637b4d0d93b838c110e630a7879786b359769e0.jpg" alt="" />
           <div>
             <span>Follow me</span>
+            <a href="insta.com"></a>
             <a href=""></a>
             <a href=""></a>
-            <a href=""></a>
-            </div>
+          </div>
         </div>
         <div className={s.text}>
           <p className={s.desc}>Born and raised in the vibrant culinary landscape of Italy, my journey with food began in the heart of my family's kitchen. Surrounded by the aroma of fresh herbs, the sizzle of pans, and the laughter of loved ones, I developed a deep appreciation for the art of cooking. My culinary education took me from the historic streets of Rome to the bustling markets of Florence, where I honed my skills and cultivated a love for the simplicity and authenticity of Italian cuisine.</p>
