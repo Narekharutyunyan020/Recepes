@@ -56,17 +56,17 @@ const CookingTips = () => {
         </div>
 
         <div className={`container ${s.center}`}>
-          <div className={s.icon1}>
+          <div className={s.icon}>
             <img src="/mek.png" alt="" />
             <h3>Quality Tools</h3>
             <p>Invest in high-quality knives, cutting boards, and cookware.</p>
           </div>
-          <div className={s.icon2}>
+          <div className={s.icon}>
             <img src="/erku.png" alt="" />
             <h3>Quality Tools</h3>
             <p>Invest in high-quality knives, cutting boards, and cookware.</p>
           </div>
-          <div className={s.icon3}>
+          <div className={s.icon}>
             <img src="/ereq.png" alt="" />
             <h3>Quality Tools</h3>
             <p>Invest in high-quality knives, cutting boards, and cookware.</p>
