@@ -5,11 +5,10 @@ import { useForm } from "react-hook-form";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const searchQuery = searchParams.get("search")
-
+  const searchQuery = searchParams.get("search");
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -25,8 +24,8 @@ const Header = () => {
 
   const { register, handleSubmit, reset } = useForm({
     defaultValues: {
-      search: searchQuery
-    }
+      search: searchQuery,
+    },
   });
 
   useEffect(() => {
@@ -34,7 +33,7 @@ const Header = () => {
   }, [location.search, reset, searchQuery]);
 
   const onSubmit = ({ search }) => {
-    navigate(`/recipes?search=${search}`)
+    navigate(`/recipes?search=${search}`);
   };
 
   return (
@@ -48,44 +47,88 @@ const Header = () => {
         </div>
       </Link>
 
-      <button className={s.menuToggle} onClick={toggleMenu}>☰</button>
+      <button className={s.menuToggle} onClick={toggleMenu}>
+        ☰
+      </button>
 
       {/* Desktop Navigation */}
       <nav className={s.nav}>
-        <NavLink to="/" className={({ isActive }) => isActive ? s.active : ""}>Home</NavLink>
-        <NavLink to="/recipes?search=" className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
-        <NavLink to="/about" className={({ isActive }) => isActive ? s.active : ""}>About Us</NavLink>
-        <NavLink to="/tips" className={({ isActive }) => isActive ? s.active : ""}>Cooking Tips</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? s.active : "")}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/recipes?search="
+          className={({ isActive }) => (isActive ? s.active : "")}
+        >
+          Recipes
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) => (isActive ? s.active : "")}
+        >
+          About Us
+        </NavLink>
+        <NavLink
+          to="/tips"
+          className={({ isActive }) => (isActive ? s.active : "")}
+        >
+          Cooking Tips
+        </NavLink>
       </nav>
 
       {/* Desktop Search/Subscribe */}
-      <div className={s.rightSection}>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="text"
-            placeholder="Search recipes..."
-            className={s.searchInput}
-            {...register("search")}
-          />
-        </form>
-
-        <button className={s.subscribeButton}>Subscribe</button>
-      </div>
+      <form className={s.rightSection} onSubmit={handleSubmit(onSubmit)}>
+        <input
+          type="text"
+          placeholder="Search recipes..."
+          className={s.searchInput}
+          {...register("search")}
+        />
+        <button className={s.subscribeButton}>Search</button>
+      </form>
 
       {/* Slide-in Mobile Menu */}
       <div className={`${s.mobileMenu} ${menuOpen ? s.open : ""}`}>
         <div className={s.menuHeader}>
           <span>Cooks Delight</span>
-          <button onClick={closeMenu} className={s.closeBtn}>×</button>
+          <button onClick={closeMenu} className={s.closeBtn}>
+            ×
+          </button>
         </div>
 
         <div className={s.menuLinks}>
-          <NavLink to="/" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Home</NavLink>
-          <NavLink to="/recipes?search=" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Recipes</NavLink>
-          <NavLink to="/about" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>About Us</NavLink>
-          <NavLink to="/tips" onClick={closeMenu} className={({ isActive }) => isActive ? s.active : ""}>Cooking Tips</NavLink>
+          <NavLink
+            to="/"
+            onClick={closeMenu}
+            className={({ isActive }) => (isActive ? s.active : "")}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/recipes?search="
+            onClick={closeMenu}
+            className={({ isActive }) => (isActive ? s.active : "")}
+          >
+            Recipes
+          </NavLink>
+          <NavLink
+            to="/about"
+            onClick={closeMenu}
+            className={({ isActive }) => (isActive ? s.active : "")}
+          >
+            About Us
+          </NavLink>
+          <NavLink
+            to="/tips"
+            onClick={closeMenu}
+            className={({ isActive }) => (isActive ? s.active : "")}
+          >
+            Cooking Tips
+          </NavLink>
         </div>
-
       </div>
     </header>
   );

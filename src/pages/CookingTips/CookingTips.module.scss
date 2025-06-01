@@ -3,6 +3,7 @@
   border-radius: 15px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   padding: 30px 20px;
+  margin-top: 50px;
 }
 
 .top {
@@ -38,10 +39,9 @@
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-    max-width: 280px;
     text-align: center;
     transition: transform 0.3s ease;
-
+    width: 100%;
     &:hover {
       transform: translateY(-8px);
       box-shadow: 0 8px 16px rgb(0 0 0 / 0.15);
@@ -155,12 +155,15 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  padding-left: 20px;
+  padding-right: 20px;
   &_info {
     background-color: rgb(234, 228, 228);
     z-index: 1;
     position: relative;
     max-width: 700px;
+    animation: opening 0.3s linear 0s 1 forwards normal;
+
     padding: 20px;
     border-radius: 10px;
     div {
@@ -215,5 +218,98 @@ li {
 
   &:hover {
     color: #333;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .top {
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #2c3e50;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+}
+@media screen and (max-width: 760px) {
+  .top {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #2c3e50;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  .center {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+    .icon:last-child {
+      grid-column: span 2;
+    }
+  }
+  .modal_info div {
+    display: block;
+    img {
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 0;
+    }
+    p {
+      font-size: 17px;
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .center {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    justify-items: center;
+    .icon:last-child {
+      grid-column: span 1;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .modal_info div {
+    display: flex;
+    flex-direction: column;
+    img {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+}
+
+@keyframes opening {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
