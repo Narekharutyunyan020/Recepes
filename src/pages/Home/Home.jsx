@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import s from "./Home.module.scss"
-import { Rating } from 'react-simple-star-rating'
 import { getRecipes } from '../../services/recipes'
 import RecipesCard from '../../components/RecipeCard/RecipesCard'
 import RecipeSlider from '../../components/RecipeSlider/RecipeSlider'
@@ -22,7 +21,7 @@ const Home = () => {
       <div className='container'>
         <div className={s.subscribes}>
           <div className={s.blur}>
-            <h1>Join the fun. <br /> Subscribe now!</h1>
+            <h2>Join the fun. <br /> Subscribe now!</h2>
             <p>
               Subscribe to our newsletter for a weekly serving of recipes, cooking tips,
               and exclusive insights straight to your inbox.
@@ -122,21 +121,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="container">
-        <div className={s.subscribe}>
-          <h3>Subscribe</h3>
-          <h1>Join the fun. <br /> Subscribe now!</h1>
-          <p>
-            Subscribe to our newsletter for a weekly serving of recipes, cooking tips,
-            and exclusive insights straight to your inbox.
-          </p>
-
-          <div className={s.inputWrapper}>
-            <input type="email" placeholder="Email Address" />
-            <button type="submit">Subscribe</button>
-          </div>
-        </div>
-      </div>
+      
     </div>
   )
 }
