@@ -116,16 +116,17 @@ const CookingTips = () => {
       {modal && selectedTip && (
         <div className={s.modal} onClick={closeModal}>
           <div className={s.modal_back} />
-        <div className={s.modal_info} onClick={(e) => e.stopPropagation()}>
-  <button className={s.closeBtn} onClick={closeModal}>×</button>
-  <h2>{selectedTip.title}</h2>
-  <div>
-    <img width={100} src={selectedTip.img} alt="" />
-    <p>{selectedTip.fullDesc}</p>
-  </div>
-  <span>{selectedTip.time}</span>
-</div>
-
+          <div className={s.modal_info} onClick={(e) => e.stopPropagation()}>
+            <button className={s.closeBtn} onClick={closeModal}>
+              ×
+            </button>
+            <h2>{selectedTip.title}</h2>
+            <div>
+              <img width={100} src={selectedTip.img} alt="" />
+              <p>{selectedTip.fullDesc}</p>
+            </div>
+            <span>{selectedTip.time}</span>
+          </div>
         </div>
       )}
     </div>
